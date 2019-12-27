@@ -17,7 +17,7 @@
                         <a-entity cursor="fuse: true; fuseTimeout: 500"
             position="0 0 -1"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-            material="color: black; shader: flat">
+            material="color: red; shader: flat">
   </a-entity>
                 </a-camera>
                 <a-asset-item id="mesa" src="{{ asset('resources/mesa.obj') }}"></a-asset-item>
@@ -26,23 +26,6 @@
                 <a-asset-item id="inventory-mtl" src="{{ asset('resources/inventory.mtl') }}"></a-asset-item>
                 <a-asset-item id="recycle" src="{{ asset('resources/recycle.obj') }}"></a-asset-item>
                 <a-asset-item id="recycle-mtl" src="{{ asset('resources/recycle.mtl') }}"></a-asset-item>
-                <script>
-                    window.onload=function(){
-                        var draggable = document.querySelector('[click-drag]');
-                  draggable.addEventListener('dragstart', function(dragInfo) {
-                    draggable.pause();
-                  });
-                  draggable.addEventListener('dragend', function(dragInfo) {
-                    var x = dragInfo.detail.velocity.x;
-                    var y = dragInfo.detail.velocity.y;
-                    var z = dragInfo.detail.velocity.z;
-          
-                    draggable.play();
-                    draggable.body.velocity.set(x, y, z);
-                    console.log('drag end', dragInfo.detail.velocity);
-                  });
-                    }
-                </script>
                 <a-entity obj-model="obj: #mesa; mtl: #mesa-mtl" scale="0.3 0.3 0.3" position="4 0 0"></a-entity>
                 <a-entity obj-model="obj:#recycle; mtl:#recycle-mtl" scale="1.2 1.2 1.2" position="2.854 0 1.874" rotation="180 90 180"></a-entity>
                 <a-entity click-drag obj-model="obj: #inventory; mtl: #inventory-mtl" scale="0.005 0.005 0.005" position="3 0 -2" rotation="0 90 0"></a-entity>
